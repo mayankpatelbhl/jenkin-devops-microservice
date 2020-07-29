@@ -3,11 +3,7 @@
 //DECLARATIVE
 pipeline {
 	//agent any
-	agent {
-		docker {
-			image 'maven:3.6.3'
-		}
-	}
+	agent { docker { image 'maven:3.6.3'} }
 	stages {
 		stage('Build') {
 			steps {
@@ -27,9 +23,6 @@ pipeline {
 		}
 	}
 	post {
-		always {
-			echo "I'm awesome. I run always"
-		}
 		success {
 			echo "I run when you are successful"
 		}
